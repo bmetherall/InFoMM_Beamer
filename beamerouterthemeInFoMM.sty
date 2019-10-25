@@ -1,31 +1,45 @@
 \mode<presentation>
+
+% Include packages
 \RequirePackage{tikz}
 \RequirePackage{graphicx}
 \RequirePackage{calc}
+
+% Define measurements
 \def\leftcol{0.065\paperwidth}
 \def\colpadd{0.1*\leftcol}
 \setbeamersize{sidebar width left=\leftcol}
+
 \setbeamertemplate{left bar}{}
 \setbeamertemplate{navigation symbols}{}
+
+% Draw slide background
 \setbeamertemplate{background}{
     \begin{tikzpicture}
-    \useasboundingbox (0,0) rectangle(\paperwidth,\paperheight);
-    \fill[color=oxblue] (0,0) rectangle(\leftcol,\paperheight);
-    \shade[left color=shadeblue,right color=white] (\leftcol,\paperheight-\leftcol) rectangle(\paperwidth,\paperheight);
-    \node[anchor= west, white, rotate=90] at (0.5*\leftcol,\colpadd){\usebeamerfont{leftbar}Mathematical Institute};
-    \node[anchor= east, white, rotate=90] at (0.5*\leftcol,\paperheight-\colpadd){\usebeamerfont{leftbar}University of Oxford};
-    \node[anchor=east] at (\paperwidth,\paperheight-0.5*\leftcol){\includegraphics[height=\leftcol, keepaspectratio]{InFoMM}};
-    \end{tikzpicture}}
+    \useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
+    \fill[color=oxblue] (0,0) rectangle (1.125,\paperheight); % Left blue rectangle
+    \shade[left color=shadeblue,right color=white] (1.125,\paperheight-1.25cm) rectangle (\paperwidth-3.45cm,\paperheight); % Top gradient
+    \node[anchor= west, white, rotate=90] at (0.5*1.125,0.25){\usebeamerfont{leftbar}\large Mathematical Institute}; % Math Institute
+    \node[anchor= east, white, rotate=90] at (0.5*1.125,\paperheight-0.25cm){\usebeamerfont{leftbar}\large University of Oxford}; % Oxford
+    \node[anchor=north east] at (\paperwidth,\paperheight){\includegraphics[width=3.2cm, keepaspectratio]{InFoMM}}; % InFoMM logo
+    \end{tikzpicture}
+}
+
+% Draw footer
 \setbeamertemplate{footline}{
     \begin{beamercolorbox}[ht=4mm,center]{footline}
     \begin{tikzpicture}
     \useasboundingbox (0,0) rectangle(\paperwidth,\paperheight);
-    \draw[oxblue, thin] (\leftcol+\colpadd,4mm) -- (\paperwidth-\colpadd,4mm);
-    \node[anchor=center] at (\leftcol+0.5*\paperwidth-0.5*\leftcol,2mm){\usebeamerfont{footline}EPSRC Centre for Doctoral Training in Industrially Focused Mathematical Modelling};%
+    \draw[oxblue, thin] (1.125+0.25,0.56cm) -- (\paperwidth-0.25cm,0.56cm) node[pos=0.5,yshift=-0.28cm] {\usebeamerfont{footline}EPSRC Centre for Doctoral Training in Industrially Focused Mathematical Modelling}; % Words
     \end{tikzpicture}
-    \end{beamercolorbox}}
+    \end{beamercolorbox}
+}
+
+% Draw title
 \setbeamertemplate{frametitle}{
     \begin{beamercolorbox}[ht=\leftcol]{frametitle}
     \vbox to\leftcol{\vfil\hbox{\usebeamerfont{title}\insertframetitle}\vfil}
-    \end{beamercolorbox}}
+    \end{beamercolorbox}
+}
+
 \mode<all>
