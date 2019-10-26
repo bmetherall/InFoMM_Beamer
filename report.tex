@@ -1,87 +1,56 @@
-\documentclass[8pt]{beamer}
+\documentclass{beamer}
 
 \usetheme{InFoMM}
 \input{preamble}
 
+\newcommand{\diff}[3][]{\frac{d^{#1}#2}{d{#3}^{#1}}}
+\newcommand{\pdiff}[3][]{\frac{\partial^{#1}#2}{\partial{#3}^{#1}}}
 
-\title{Simulating networks using Markov evolution}
-\date{February 2017}
-\author{Oliver Sheridan-Methven}
-
-\newcommand{\clique}{\mathbbm{1}}
-
-\usepackage[percent]{overpic}
-\usepackage[export]{adjustbox}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% See below for some example slides %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{A New Method of Modelling Tuneable Lasers with Functional Composition}
+\date{October 2019}
+\author{Brady Metherall}
 
 \begin{document}
-\maketitle
+\frame{\titlepage}
 
-\begin{frame}{Problem description}
-	We simulate the equilibrium states of undirected networks which evolve through a Markov process. The adjacency matrix $ A_n $ of size $ N \times N $  with $ 2 \le N $ evolves in expectation through 
-	\begin{equation}
-	\bra{A_{n+1}}\ket{A_n} = \left(\clique - \omega(A_n) \right)\circ A_n + (\clique - A_n)\circ \alpha(A_n)
-	\end{equation}
-	where $ \clique $ represents the clique matrix, $ \omega(A_n) = \bar{\omega} \clique $, and $ \alpha(A_n) = \delta \clique + \epsilon A_n^2 \circ \clique $. As $ n $ becomes very large we have $ \lim_{1 \ll n} \expval{A_n}  \to p_n \clique $ where $ p_n $ evolves through
-	\begin{equation}
-	\label{eqt:probability_evolution}
-	p_{n+1} = (1 - \bar{\omega})p_n + (1-p_n)(\delta + \varepsilon(N-2) p_n^2)
-	\end{equation}
-	under the constraints $ 0 < \bar{\omega} < 1 $, $ 0 < \delta $, $ 0 < \varepsilon $, and $ 0 < \delta + \varepsilon (N-2) < 1 $.
-\end{frame}
+\section{Introduction}
 
-\begin{frame}{Steady state equilibria solutions}
-	We wish to find the steady state solution to \eqref{eqt:probability_evolution}, which involves finding the roots to 
-	\begin{equation}
-	\label{eqt:p_roots}
-		0 = \delta - (\bar{\omega} + \delta)p + \bar{\varepsilon}p^2 -  \bar{\varepsilon}p^3
-	\end{equation}
-	where $ \bar{\varepsilon} =\varepsilon(N-2) $. We can construct solutions to this by expressing \eqref{eqt:p_roots} as 
-	\begin{equation}
-	\label{eqt:p_roots_construction}
-	0 = \gamma (\alpha' + \beta' + p^2 - p^3) = \gamma (p - a)(p - b)(p - c)
-	\end{equation}
-	where we specify some $ 0< a< b< c< 1 $. Equating the coefficients in \eqref{eqt:p_roots} and \eqref{eqt:p_roots_construction} gives 
-	\begin{align}
-	a + b + c & = 1  \label{eqt:abc_1}\\
-	ab + ac + bc & = -\beta' \label{eqt:abc_beta} \\
-	abc & = \alpha' \label{eqt:abc_alpha}.
-	\end{align}
-	We now choose some $ 0< \varkappa < 1$ and set $ \varkappa = \delta + \bar{\varepsilon} $. We substitute \eqref{eqt:abc_1}-\eqref{eqt:abc_alpha} into \eqref{eqt:p_roots} to give
-	\begin{align}
-	\epsilon & = \dfrac{\varkappa}{(1 + \alpha')(N-2)} \\
-	\delta & = \dfrac{\varkappa\alpha'}{1 + \alpha'} \\
-	\bar{\omega} & = -\dfrac{\varkappa(\beta' + \alpha')}{1 + \alpha'}
-	\end{align}
-	where it remains to verify \emph{a posteriori} that $ p_{n+1} \in [0, 1] \quad \forall p_n \in [0, 1]$.
-\end{frame}
+\frame{
+\frametitle{Laser Overview}
+\begin{itemize}
+\item The word laser was originally an acronym for Light Amplification by Stimulated Emission of Radiation
+\item The defining feature of laser light is coherence, where the peaks and trough overlap causing very strong constructive interference
+\item Typical lasers, such as Helium-Neon gas lasers or laser pointers, are monochromatic (operate at a single wavelength---have a very narrow bandwidth)
+\end{itemize}
+}
 
+\frame{
+\frametitle{Tuneable Lasers}
+Tuneable lasers
+\begin{itemize}
+\item have a much wider bandwidth (up to $\sim 100$ nm)
+\item lase continuously at all of these wavelengths
+\item have applications in spectroscopy and high resolution imaging
+%\item use mode-locking---a method to create ultrashort laser pulses ($10^{-12}$--$10^{-15}$ s)
+\end{itemize}
+}
 
-\begin{frame}{Simulations}
-\begin{figure}[t]
-	\centering
-\begin{overpic}[height=62mm]{comparison_of_prediction_and_simulation} 
-\put(54,38){\includegraphics[height=20.5mm, trim={20mm 13mm 20mm 13mm}, clip=true, frame]{tunnelling_into_unstable_minimal}}
-\end{overpic}	
-\caption{Simulations of $ A \in \mathbb{R}^{200\times 200}$ matrices using $ \varepsilon \approx 0.0100 $, $ \bar{\omega} \approx 0.265 $, and $ \delta \approx 0.0196 $. Stable equilibria are at $ a = 0.1$, $  c = 0.5 $, and an instability at $ b=0.4 $, where $ \Gamma $ passes through $ b $. Solid lines are simulations of $ A $, and dotted lines are the expected trajectories from the initial conditions. (\textbf{Inset}) Simulations using $ A \in \mathbb{R}^{100\times 100}$.}
-\label{fig:simulation}
-\end{figure}
-\end{frame}
+\section{Modelling Efforts}
 
-\begin{frame}{Items}
-	Some interesting results were shown in Figure~\ref{fig:simulation}, see \href{https://www.google.co.uk}{Google} for more info.
-    	\begin{itemize}
-    		\setlength\itemsep{1em}
-    		\item We have explored different ways to detect the baud rade of an unknown signal for $ \sqrt{3} $.
-    		\item \lipsum[1]
-    	\end{itemize}
-    	\begin{equation}
-    	\sqrt{\dfrac{\Gamma}{\int f(x) \dd{x}}}
-    	\end{equation}
-\end{frame}
-
+\frame{
+\frametitle{Nonlinear Optics}
+The standard equation for studying nonlinear optics is the generalized nonlinear Schr\"odinger equation,
+\begin{align}
+\pdiff{A}{z} &= \underbrace{- i \frac{\beta_2}{2}\pdiff[2]{A}{T}}_{\text{Dispersion}} + \underbrace{i \gamma |A|^2 A}_{\text{Nonlinearity}} + \underbrace{\underbrace{\frac{1}{2}g(A) A}_{\text{Gain}} - \underbrace{\alpha A}_{\text{Loss}}}_{\text{Generalization}}.
+\label{eq:gnlse}
+\end{align}
+\begin{itemize}
+\item Derived from the nonlinear wave equation
+\item Uses comoving coordinates so that the reference frame propagates with the pulse at the group velocity
+\begin{align*}
+T = t - \frac{z}{v_g}
+\end{align*}
+\end{itemize}
+}
 
 \end{document}
