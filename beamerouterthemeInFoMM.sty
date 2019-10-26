@@ -3,6 +3,34 @@
 % Include packages
 \RequirePackage{tikz}
 \RequirePackage{calc}
+\RequirePackage{amsmath} % Nice maths symbols
+\RequirePackage{amssymb} % Nice variable symbols
+\RequirePackage{hyperref} % Colour links. % Should be used near the end
+\RequirePackage{geometry} % Use nice margins. % Should be loaded after hyperref
+
+% maming nice link colors.
+\hypersetup{colorlinks,linkcolor=blue,urlcolor=blue,citecolor=blue,anchorcolor=blue} 
+
+% If you want to consider serif fonts...
+%\usefonttheme{serif} % To make everything serif.
+\usefonttheme[onlymath]{serif} % To make the maths serif.
+
+% Use numbered figures.
+\setbeamertemplate{caption}[numbered]
+
+% Present the references in the order they are used.
+\bibliographystyle{ieeetr}
+
+% Giving the refereneces the right title.
+\renewcommand{\bibname}{References}
+
+\let\originalleft\left
+\let\originalright\right
+\renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
+\renewcommand{\right}{\aftergroup\egroup\originalright}
+
+\newcommand{\diff}[3][]{\frac{d^{#1}#2}{d{#3}^{#1}}}
+\newcommand{\pdiff}[3][]{\frac{\partial^{#1}#2}{\partial{#3}^{#1}}}
 
 % Define measurements
 \def\leftcol{1.125cm}
