@@ -19,6 +19,7 @@
   \begingroup
     \centering
     \begin{beamercolorbox}[sep=8pt,center]{title}
+	\hskip-\beamer@leftsidebar
       \usebeamerfont{title}\inserttitle\par%
       \ifx\insertsubtitle\@empty%
       \else%
@@ -28,10 +29,12 @@
     \end{beamercolorbox}%
     \vskip1em\par
     \begin{beamercolorbox}[sep=8pt,center]{author}
+	\hskip-\beamer@leftsidebar
       \usebeamerfont{author}\insertauthor
     \end{beamercolorbox}
     \vskip1em\par
     \begin{beamercolorbox}[sep=8pt,center]{date}
+	\hskip-\beamer@leftsidebar
       \usebeamerfont{date}\insertdate
     \end{beamercolorbox}\vskip0.5em
     {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
