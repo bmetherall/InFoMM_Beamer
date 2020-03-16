@@ -9,7 +9,7 @@
 \RequirePackage{geometry} % Use nice margins. % Should be loaded after hyperref
 
 % maming nice link colors.
-\hypersetup{colorlinks,linkcolor=blue,urlcolor=blue,citecolor=blue,anchorcolor=blue} 
+\hypersetup{colorlinks,linkcolor=oxblue,urlcolor=oxblue,citecolor=oxblue,anchorcolor=oxblue} 
 
 % If you want to consider serif fonts...
 %\usefonttheme{serif} % To make everything serif.
@@ -43,82 +43,72 @@
 \setbeamertemplate{navigation symbols}{}
 
 \setbeamertemplate{title page}{
-  \vbox{}
-  \vfill
-  \begingroup
-    \centering
-    \begin{beamercolorbox}[sep=8pt,center]{title}
-	\hskip-\beamer@leftsidebar
-      \usebeamerfont{title}\inserttitle\par%
-      \ifx\insertsubtitle\@empty%
-      \else%
-        \vskip0.25em%
-        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
-      \fi%     
-    \end{beamercolorbox}%
-    \vskip1em\par
-    \begin{beamercolorbox}[sep=8pt,center]{author}
-	\hskip-\beamer@leftsidebar
-      \usebeamerfont{author}\insertauthor
-    \end{beamercolorbox}
-    \vskip1em\par
-    \begin{beamercolorbox}[sep=8pt,center]{date}
-	\hskip-\beamer@leftsidebar
-      \usebeamerfont{date}\insertdate
-    \end{beamercolorbox}\vskip0.5em
-    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
-  \endgroup
-  \vfill
+	\vbox{}
+	\vfill
+	\begingroup
+		\centering
+		\begin{beamercolorbox}[sep=8pt,center]{title}
+			\hskip-\beamer@leftsidebar
+			\usebeamerfont{title}\inserttitle\par%
+			\ifx\insertsubtitle\@empty%
+			\else%
+				\vskip0.25em%
+				{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+			\fi%		 
+		\end{beamercolorbox}%
+		\vskip1em\par
+		\begin{beamercolorbox}[sep=8pt,center]{author}
+			\hskip-\beamer@leftsidebar
+			\usebeamerfont{author}\insertauthor
+		\end{beamercolorbox}
+		\vskip1em\par
+		\begin{beamercolorbox}[sep=8pt,center]{date}
+			\hskip-\beamer@leftsidebar
+			\usebeamerfont{date}\insertdate
+		\end{beamercolorbox}\vskip0.5em
+		{\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+	\endgroup
+	\vfill
 }
 
 % Draw slide background
 \setbeamertemplate{background}{
-
-  \ifnum\insertframenumber>1\relax%
-    \begin{tikzpicture}
-    \useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
-    \fill[color=oxblue] (0,0) rectangle (\leftcol,\paperheight); % Left blue rectangle
-    \shade[left color=shadeblue,right color=white] (\leftcol,\paperheight-1.25cm) rectangle (\paperwidth-3.45cm,\paperheight); % Top gradient
-    \node[anchor= west, white, rotate=90] at (0.5*\leftcol,\colpadd){\usebeamerfont{leftbar}\large Mathematical Institute}; % Math Institute
-    \node[anchor= east, white, rotate=90] at (0.5*\leftcol,\paperheight-\colpadd){\usebeamerfont{leftbar}\large University of Oxford}; % Oxford
-    \node[anchor=north east] at (\paperwidth,\paperheight){\includegraphics[height=1cm, keepaspectratio]{InFoMM}}; % InFoMM logo
-    \end{tikzpicture}
-
-
-
-  \else%
-
-\begin{tikzpicture}
-    \useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
-\draw [oxblue] (\colpadd,\colpadd) rectangle (\paperwidth-\colpadd,\paperheight-\colpadd);
-    \node[anchor=north east] at (\paperwidth-\colpadd,\paperheight-\colpadd){\includegraphics[height=1cm, keepaspectratio]{InFoMM}}; % InFoMM logo
-    \node[anchor=north west] at (\colpadd,\paperheight-\colpadd){\includegraphics[height=1cm, keepaspectratio]{EPSRC}}; % InFoMM logo
-\end{tikzpicture}
-
-
-  \fi%
-
-
-
+	\ifnum\insertframenumber>1\relax%
+		\begin{tikzpicture}
+			\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
+			\fill[color=oxblue] (0,0) rectangle (\leftcol,\paperheight); % Left blue rectangle
+			\shade[left color=shadeblue,right color=white] (\leftcol,\paperheight-1.25cm) rectangle (\paperwidth-3.45cm,\paperheight); % Top gradient
+			\node[anchor= west, white, rotate=90] at (0.5*\leftcol,\colpadd){\usebeamerfont{leftbar}\large Mathematical Institute}; % Math Institute
+			\node[anchor= east, white, rotate=90] at (0.5*\leftcol,\paperheight-\colpadd){\usebeamerfont{leftbar}\large University of Oxford}; % Oxford
+			\node[anchor=north east] at (\paperwidth,\paperheight){\includegraphics[height=1cm, keepaspectratio]{InFoMM}}; % InFoMM logo
+		\end{tikzpicture}
+	\else%
+		\begin{tikzpicture}
+				\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
+				\draw [oxblue] (\colpadd,\colpadd) rectangle (\paperwidth-\colpadd,\paperheight-\colpadd);
+				\node[anchor=north east] at (\paperwidth-\colpadd,\paperheight-\colpadd){\includegraphics[height=1cm, keepaspectratio]{InFoMM}}; % InFoMM logo
+				\node[anchor=north west] at (\colpadd,\paperheight-\colpadd){\includegraphics[height=1cm, keepaspectratio]{EPSRC}}; % InFoMM logo
+		\end{tikzpicture}
+	\fi%
 }
 
 % Draw footer
 \setbeamertemplate{footline}{
-  \ifnum\insertframenumber>1\relax%
-    \begin{beamercolorbox}[ht=0.2cm,center]{footline}
-    \begin{tikzpicture}
-    \useasboundingbox (0,0) rectangle(\paperwidth,\paperheight);
-    \draw[oxblue, thin] (\leftcol+\colpadd,0.56cm) -- (\paperwidth-\colpadd,0.56cm) node[pos=0.5,yshift=-0.28cm] {\usebeamerfont{footline}EPSRC Centre for Doctoral Training in Industrially Focused Mathematical Modelling}; % Words
-    \end{tikzpicture}
-    \end{beamercolorbox}
+	\ifnum\insertframenumber>1\relax%
+		\begin{beamercolorbox}[ht=0.2cm,center]{footline}
+			\begin{tikzpicture}
+				\useasboundingbox (0,0) rectangle(\paperwidth,\paperheight);
+				\draw[oxblue, thin] (\leftcol+\colpadd,0.56cm) -- (\paperwidth-\colpadd,0.56cm) node[pos=0.5,yshift=-0.28cm] {\usebeamerfont{footline}EPSRC Centre for Doctoral Training in Industrially Focused Mathematical Modelling}; % Words
+			\end{tikzpicture}
+		\end{beamercolorbox}
 \fi
 }
 
 % Draw slide title
 \setbeamertemplate{frametitle}{
-    \begin{beamercolorbox}[ht=\leftcol]{frametitle}
-    \vbox to\leftcol{\vfil\hbox{\usebeamerfont{title}\insertframetitle}\vfil}
-    \end{beamercolorbox}
+		\begin{beamercolorbox}[ht=\leftcol]{frametitle}
+			\vbox to\leftcol{\vfil\hbox{\usebeamerfont{title}\insertframetitle}\vfil}
+		\end{beamercolorbox}
 }
 
 \mode<all>

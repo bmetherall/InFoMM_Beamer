@@ -5,3 +5,7 @@
 *.snm
 *.gz
 *.toc
+*.bbl
+*.blg
+*.fdb*
+*.fls
