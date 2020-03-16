@@ -12,41 +12,41 @@
 \section{Introduction}
 
 \frame{
-\frametitle{Laser Overview}
-\begin{itemize}
-\item The word laser was originally an acronym for Light Amplification by Stimulated Emission of Radiation
-\item The defining feature of laser light is coherence, where the peaks and trough overlap causing very strong constructive interference
-\item Typical lasers, such as Helium-Neon gas lasers or laser pointers, are monochromatic (operate at a single wavelength---have a very narrow bandwidth)
-\end{itemize}
+	\frametitle{Laser Overview}
+	\begin{itemize}
+		\item The word laser was originally an acronym for Light Amplification by Stimulated Emission of Radiation
+		\item The defining feature of laser light is coherence, where the peaks and trough overlap causing very strong constructive interference
+		\item Typical lasers, such as Helium-Neon gas lasers or laser pointers, are monochromatic (operate at a single wavelength---have a very narrow bandwidth)
+	\end{itemize}
 }
 
 \frame{
-\frametitle{Tuneable Lasers}
-Tuneable lasers
-\begin{itemize}
-\item have a much wider bandwidth (up to $\sim 100$ nm)
-\item lase continuously at all of these wavelengths
-\item have applications in spectroscopy and high resolution imaging
-%\item use mode-locking---a method to create ultrashort laser pulses ($10^{-12}$--$10^{-15}$ s)
-\end{itemize}
+	\frametitle{Tuneable Lasers}
+	Tuneable lasers
+	\begin{itemize}
+		\item have a much wider bandwidth (up to $\sim 100$ nm)
+		\item lase continuously at all of these wavelengths
+		\item have applications in spectroscopy and high resolution imaging
+		%\item use mode-locking---a method to create ultrashort laser pulses ($10^{-12}$--$10^{-15}$ s)
+	\end{itemize}
 }
 
 \section{Modelling Efforts}
 
 \frame{
-\frametitle{Nonlinear Optics}
-The standard equation for studying nonlinear optics is the generalized nonlinear Schr\"odinger equation,
-\begin{align}
-\pdiff{A}{z} &= \underbrace{- i \frac{\beta_2}{2}\pdiff[2]{A}{T}}_{\text{Dispersion}} + \underbrace{i \gamma |A|^2 A}_{\text{Nonlinearity}} + \underbrace{\underbrace{\frac{1}{2}g(A) A}_{\text{Gain}} - \underbrace{\alpha A}_{\text{Loss}}}_{\text{Generalization}}.
-\label{eq:gnlse}
-\end{align}
-\begin{itemize}
-\item Derived from the nonlinear wave equation
-\item Uses comoving coordinates so that the reference frame propagates with the pulse at the group velocity
-\begin{align*}
-T = t - \frac{z}{v_g}
-\end{align*}
-\end{itemize}
+	\frametitle{Nonlinear Optics}
+	The standard equation for studying nonlinear optics is the generalized nonlinear Schr\"odinger equation,
+	\begin{align}
+		\pdiff{A}{z} &= \underbrace{- i \frac{\beta_2}{2}\pdiff[2]{A}{T}}_{\text{Dispersion}} + \underbrace{i \gamma |A|^2 A}_{\text{Nonlinearity}} + \underbrace{\underbrace{\frac{1}{2}g(A) A}_{\text{Gain}} - \underbrace{\alpha A}_{\text{Loss}}}_{\text{Generalization}}.
+		\label{eq:gnlse}
+	\end{align}
+	\begin{itemize}
+		\item Derived from the nonlinear wave equation
+		\item Uses comoving coordinates so that the reference frame propagates with the pulse at the group velocity
+		\begin{align*}
+			T = t - \frac{z}{v_g}
+		\end{align*}
+	\end{itemize}
 }
 
 \end{document}
