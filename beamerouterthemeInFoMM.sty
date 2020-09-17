@@ -42,8 +42,13 @@
 \setbeamertemplate{left bar}{}
 \setbeamertemplate{navigation symbols}{}
 
+\newcommand*{\supervisor}[1]{\def\@supervisor{#1}}
+\newcommand*{\companylogo}[1]{\def\@companylogo{#1}}
+\newcommand*{\logosize}[1]{\def\@logosize{#1}}
+
 \setbeamertemplate{title page}{
 	\vbox{}
+	\vfill
 	\vfill
 	\begingroup
 		\centering
@@ -56,12 +61,27 @@
 				{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
 			\fi%		 
 		\end{beamercolorbox}%
-		\vskip1em\par
+		\vskip0.5em\par
 		\begin{beamercolorbox}[sep=8pt,center]{author}
 			\hskip-\beamer@leftsidebar
-			\usebeamerfont{author}\insertauthor
+			\usebeamerfont{author}\large\insertauthor
 		\end{beamercolorbox}
-		\vskip1em\par
+		\ifdefined\@supervisor
+			\begin{beamercolorbox}[sep=8pt,center]{supervisor}
+				\hskip-\beamer@leftsidebar
+				\usebeamerfont{author}\@supervisor
+			\end{beamercolorbox}
+		\fi
+		\ifdefined\@companylogo
+			\vspace{-3mm}
+			\begin{beamercolorbox}[sep=8pt,center]{logo}
+				\begin{center}
+					\hskip-\beamer@leftsidebar
+					\includegraphics[scale=\@logosize]{\@companylogo}
+				\end{center}
+			\end{beamercolorbox}
+			\vspace{-3mm}
+		\fi
 		\begin{beamercolorbox}[sep=8pt,center]{date}
 			\hskip-\beamer@leftsidebar
 			\usebeamerfont{date}\insertdate
