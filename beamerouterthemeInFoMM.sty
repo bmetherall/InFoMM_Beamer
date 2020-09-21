@@ -51,9 +51,10 @@
 	\vfill
 	\vfill
 	\begingroup
+	\hspace{-20pt}%
+	\begin{minipage}{\textwidth}
 		\centering
 		\begin{beamercolorbox}[sep=8pt,center]{title}
-			\hspace{-\beamer@leftsidebar}%
 			\usebeamerfont{title}\inserttitle\par%
 			\ifx\insertsubtitle\@empty%
 			\else%
@@ -63,12 +64,10 @@
 		\end{beamercolorbox}%
 		\vskip0.5em\par
 		\begin{beamercolorbox}[sep=8pt,center]{author}
-			\hspace{-\beamer@leftsidebar}%
 			\usebeamerfont{author}\large\insertauthor
 		\end{beamercolorbox}
 		\ifdefined\@supervisor
 			\begin{beamercolorbox}[sep=8pt,center]{supervisor}
-				\hspace{-\beamer@leftsidebar}%
 				\usebeamerfont{author}\@supervisor
 			\end{beamercolorbox}
 		\fi
@@ -76,17 +75,16 @@
 			\vspace{-3mm}
 			\begin{beamercolorbox}[sep=8pt,center]{logo}
 				\begin{center}
-					\hspace{-\beamer@leftsidebar}%
 					\includegraphics[scale=\@logosize]{\@companylogo}
 				\end{center}
 			\end{beamercolorbox}
 			\vspace{-3mm}
 		\fi
 		\begin{beamercolorbox}[sep=8pt,center]{date}
-			\hspace{-\beamer@leftsidebar}%
 			\usebeamerfont{date}\insertdate
 		\end{beamercolorbox}\vskip0.5em
-		{\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+		{\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}		
+	\end{minipage}
 	\endgroup
 	\vfill
 }
@@ -126,9 +124,9 @@
 
 % Draw slide title
 \setbeamertemplate{frametitle}{
-		\begin{beamercolorbox}[ht=\leftcol]{frametitle}
-			\vbox to\leftcol{\vfil\hbox{\usebeamerfont{title}\insertframetitle}\vfil}
-		\end{beamercolorbox}
+	\begin{beamercolorbox}[ht=\leftcol]{frametitle}
+		\vbox to\leftcol{\vfil\hbox{\usebeamerfont{title}\insertframetitle}\vfil}
+	\end{beamercolorbox}
 }
 
 \mode<all>
