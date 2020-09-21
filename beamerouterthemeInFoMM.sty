@@ -53,7 +53,7 @@
 	\begingroup
 		\centering
 		\begin{beamercolorbox}[sep=8pt,center]{title}
-			\hskip-\beamer@leftsidebar
+			\hspace{-\beamer@leftsidebar}%
 			\usebeamerfont{title}\inserttitle\par%
 			\ifx\insertsubtitle\@empty%
 			\else%
@@ -63,12 +63,12 @@
 		\end{beamercolorbox}%
 		\vskip0.5em\par
 		\begin{beamercolorbox}[sep=8pt,center]{author}
-			\hskip-\beamer@leftsidebar
+			\hspace{-\beamer@leftsidebar}%
 			\usebeamerfont{author}\large\insertauthor
 		\end{beamercolorbox}
 		\ifdefined\@supervisor
 			\begin{beamercolorbox}[sep=8pt,center]{supervisor}
-				\hskip-\beamer@leftsidebar
+				\hspace{-\beamer@leftsidebar}%
 				\usebeamerfont{author}\@supervisor
 			\end{beamercolorbox}
 		\fi
@@ -76,14 +76,14 @@
 			\vspace{-3mm}
 			\begin{beamercolorbox}[sep=8pt,center]{logo}
 				\begin{center}
-					\hskip-\beamer@leftsidebar
+					\hspace{-\beamer@leftsidebar}%
 					\includegraphics[scale=\@logosize]{\@companylogo}
 				\end{center}
 			\end{beamercolorbox}
 			\vspace{-3mm}
 		\fi
 		\begin{beamercolorbox}[sep=8pt,center]{date}
-			\hskip-\beamer@leftsidebar
+			\hspace{-\beamer@leftsidebar}%
 			\usebeamerfont{date}\insertdate
 		\end{beamercolorbox}\vskip0.5em
 		{\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
